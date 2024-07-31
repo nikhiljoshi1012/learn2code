@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: "/learn2code",
-    output: "export",
+    basePath: '/learn2code',
+    output: 'export',
     reactStrictMode: true,
 };
 
