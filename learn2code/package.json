@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "gh-pages": "^6.1.1",
+    "learn2code": "file:",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
