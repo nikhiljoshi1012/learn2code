@@ -65,8 +65,8 @@ jobs:
         run: ${{ env.manager }} ${{ env.command }}
         working-directory: learn2code
 
-      - name: Build and Export with Next.js
-        run: ${{ env.runner }} next build && ${{ env.runner }} next export
+      - name: Build with Next.js
+        run: ${{ env.runner }} next build
         working-directory: learn2code
 
       - name: List files in learn2code after build
