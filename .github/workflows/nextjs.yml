@@ -65,8 +65,8 @@ jobs:
         run: ${{ env.manager }} ${{ env.command }}
         working-directory: learn2code
 
-      - name: Build with Next.js
-        run: ${{ env.runner }} next build
+      - name: Build and Export with Next.js
+        run: ${{ env.runner }} next build && ${{ env.runner }} next export
         working-directory: learn2code
 
       - name: List files in learn2code after build
@@ -75,7 +75,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: learn2code/.next
+          path: learn2code/out
 
   deploy:
     environment:
