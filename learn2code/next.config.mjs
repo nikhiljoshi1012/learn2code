@@ -2,6 +2,7 @@
 const nextConfig = {
     basePath: '/learn2code',
     output: 'export',
+    distDir: 'out',
     reactStrictMode: true,
 };
 
