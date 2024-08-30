@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "gh-pages": "^6.1.1",
     "learn2code": "file:",
+    "mongoose": "^8.6.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
