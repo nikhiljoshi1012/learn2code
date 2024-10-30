@@ -1,0 +1,37 @@
+---
+import Button from "@/components/Button.astro";
+import Input from "@/components/Input.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="grid gap-8">
+    <h1>Login to Your Account</h1>
+    <form class="grid gap-4" id="login-account">
+      <Input name="email" label="Your Email" type="email" />
+      <Input name="password" label="Your Password" type="password" />
+      <Button intent={"accent"}>Login</Button>
+    </form>
+  </div>
+
+  <script type="module">
+    const loginForm = document.querySelector("#login-account");
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      // Extract form data
+      const formData = new FormData(loginForm);
+      // Send data to the API endpoint
+      const response = await fetch("/api/login-account", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+      if (result.success) {
+        console.log("Login successful");
+        window.location.href = "/"; // Redirect to home page or desired route
+      } else {
+        console.error("Login error:", result.error);
+      }
+    });
+  </script>
+</BaseLayout>

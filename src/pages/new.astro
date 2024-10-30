@@ -1,0 +1,42 @@
+---
+import Button from "@/components/Button.astro";
+import Input from "@/components/Input.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="grid gap-8">
+    <h1>Create New Account</h1>
+    <form class="grid gap-4" id="create-account">
+      <Input name="email" label="Your Email" type="email" />
+      <Input name="password" label="Your Password" type="password" />
+      <Button intent={"accent"}>Create Account</Button>
+    </form>
+  </div>
+
+  <script type="module">
+    const createForm = document.querySelector("#create-account");
+
+    createForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Extract form data
+      const formData = new FormData(createForm);
+
+      // Send data to the API endpoint
+      const response = await fetch("/api/create-account", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Account created successfully");
+        window.location.reload();
+      } else {
+        console.error("Create account error:", result.error);
+      }
+    });
+  </script>
+</BaseLayout>
