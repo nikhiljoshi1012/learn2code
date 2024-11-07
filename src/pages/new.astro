@@ -11,14 +11,17 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <Input name="email" label="Your Email" type="email" />
       <Input name="password" label="Your Password" type="password" />
       <Button intent={"accent"}>Create Account</Button>
+      <p id="error-message" class="text-red-500"></p>
     </form>
   </div>
 
   <script type="module">
     const createForm = document.querySelector("#create-account");
+    const errorMessage = document.querySelector("#error-message");
 
     createForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      errorMessage.textContent = "";
 
       // Extract form data
       const formData = new FormData(createForm);
@@ -36,6 +39,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         window.location.reload();
       } else {
         console.error("Create account error:", result.error);
+        errorMessage.textContent = result.error;
       }
     });
   </script>

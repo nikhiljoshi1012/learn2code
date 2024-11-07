@@ -9,6 +9,8 @@ export const onRequest = defineMiddleware((context, next) => {
     !currentUser &&
     pathname !== "/new" &&
     pathname !== "/login" &&
+    pathname !== "/api/create-account" &&
+    pathname !== "/api/login-account" &&
     context.request.method === "GET"
   ) {
     return context.redirect("/login");

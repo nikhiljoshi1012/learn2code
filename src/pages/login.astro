@@ -11,26 +11,35 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <Input name="email" label="Your Email" type="email" />
       <Input name="password" label="Your Password" type="password" />
       <Button intent={"accent"}>Login</Button>
+      <p id="error-message" class="text-red-500"></p>
     </form>
   </div>
 
   <script type="module">
     const loginForm = document.querySelector("#login-account");
+    const errorMessage = document.querySelector("#error-message");
+
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      errorMessage.textContent = "";
+
       // Extract form data
       const formData = new FormData(loginForm);
+
       // Send data to the API endpoint
       const response = await fetch("/api/login-account", {
         method: "POST",
         body: formData,
       });
+
       const result = await response.json();
+
       if (result.success) {
         console.log("Login successful");
         window.location.href = "/"; // Redirect to home page or desired route
       } else {
         console.error("Login error:", result.error);
+        errorMessage.textContent = result.error;
       }
     });
   </script>

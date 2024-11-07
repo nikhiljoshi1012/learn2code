@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { projectAuth } from '@/firebase/config';
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
     const email = formData.get("email") as string;
