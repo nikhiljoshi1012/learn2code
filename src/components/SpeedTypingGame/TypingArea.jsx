@@ -1,4 +1,3 @@
-// TypingArea.js
 import React from 'react';
 
 const TypingArea = ({
@@ -10,8 +9,12 @@ const TypingArea = ({
   CPM,
   initTyping,
   handleKeyDown,
-  resetGame,
 }) => {
+  // Function to refresh the page
+  const resetGame = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="section">
       <div className="section1">
@@ -38,7 +41,7 @@ const TypingArea = ({
             <span>{CPM}</span>
           </li>
         </ul>
-        <button onClick={resetGame} className="btn">
+        <button type="reset" onClick={resetGame} className="btn">
           Try Again
         </button>
       </div>

@@ -1,6 +1,7 @@
 // App.js
 
 // import './App.css';
+// import NavBar from './NavBar';
 import SpeedTypingGame from './SpeedTypingGame/SpeedTypingGame';
 
 

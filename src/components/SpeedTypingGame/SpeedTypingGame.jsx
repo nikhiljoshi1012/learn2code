@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import 'public/SpeedTyping.css';
+import './SpeedTyping.css';
 import TypingArea from './TypingArea';
 
 const SpeedTypingGame = () => {
