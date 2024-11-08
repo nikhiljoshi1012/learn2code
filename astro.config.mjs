@@ -1,12 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import astroIcon from 'astro-icon';
-
-import vercel from '@astrojs/vercel/serverless';
+import react from '@astrojs/react';
 
 export default defineConfig({
-  integrations: [tailwind(), astroIcon()],
-  trailingSlash: "never",
-  output: 'server',
-  adapter: vercel(),
+  integrations: [react()],
 });

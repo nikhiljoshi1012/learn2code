@@ -1,0 +1,15 @@
+---
+import App from "../components/App";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Your Page Title">
+  <link
+    rel="stylesheet"
+    href="src/components/SpeedTypingGame/SpeedTyping.css"
+  />
+
+  <div class="typing-container">
+    <App client:load />
+  </div>
+</BaseLayout>
