@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 type Props = {
   title?: string;
   description?: string;
@@ -36,9 +34,7 @@ const { userEmail } = Astro.locals;
         class="py-8 text-theme-accent font-bold text-3xl grid place-items-center"
         aria-label="Firebase and Astro"
       >
-        <Icon name="firebase" width={300} height={70} />
-        <Icon name="plus" class="-mb-7 -mt-2 size-8 -z-10" />
-        <Icon name="astro" width={400} height={110} />
+        <h1>Firebase and Astro</h1>
       </div>
       {userEmail && <p>Welcome back, {userEmail}</p>}
     </header>

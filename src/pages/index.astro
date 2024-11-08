@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
+import { Card as BootstrapCard } from 'react-bootstrap';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -33,7 +34,7 @@ import Card from "../components/Card.astro";
         </linearGradient>
       </defs>
     </svg>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+    <h1>Welcome to <span class="text-gradient">Astro</span> - Your Journey Begins Here!</h1>
     <p class="instructions">
       To get started, open the directory <code>src/pages</code> in your project.<br
       />
@@ -61,6 +62,14 @@ import Card from "../components/Card.astro";
         body="Come say hi to our amazing Discord community. ❤️"
       />
     </ul>
+    <BootstrapCard style={{ width: '18rem' }}>
+      <BootstrapCard.Body>
+        <BootstrapCard.Title>Card Title</BootstrapCard.Title>
+        <BootstrapCard.Text>
+          This is some text within a card body.
+        </BootstrapCard.Text>
+      </BootstrapCard.Body>
+    </BootstrapCard>
   </main>
 </Layout>
 
