@@ -16,6 +16,9 @@ const documents = files.map((file: { name: string }) => ({
   name: decodeFirebaseFilename(file.name),
   url: `${BUCKET_URL}/${encodeURIComponent(file.name)}?alt=media`
 }));
+
+console.log(documents);
+
 ---
 
 <!DOCTYPE html>
@@ -42,7 +45,7 @@ const documents = files.map((file: { name: string }) => ({
 
     <!-- Document List -->
     <div id="document-list" class="grid gap-4">
-      {documents.map((doc) => (
+      {documents.map((doc: { name: string, url: string }) => (
         <div 
           class="document-item p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
           data-title={doc.name.toLowerCase()}
