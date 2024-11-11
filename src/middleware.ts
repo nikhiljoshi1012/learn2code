@@ -8,6 +8,7 @@ export const onRequest = defineMiddleware((context, next) => {
   if (
     !currentUser &&
     pathname !== "/new" &&
+    pathname !== "/" &&
     pathname !== "/login" &&
     pathname !== "/api/create-account" &&
     pathname !== "/api/login-account" &&

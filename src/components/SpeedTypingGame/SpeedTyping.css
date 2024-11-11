@@ -1,25 +1,14 @@
-body{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Noto Sans Mono', monospace;
-    background-color: #e7e9e9;
-  }
-  
-  .container {
+.container {
     max-width: 650px;
     margin: 5px;
-    width: calc(100% - 10px);
+    width: 100%;
     padding: 30px;
     border-radius: 10px;
     box-sizing: border-box;
     border: 1px solid #ced4da;
     background: #fff;
     box-shadow: 0 0 6px rgba(0,0,0,0.25);
+    
   }
   
   input.input-field{
@@ -29,8 +18,11 @@ body{
   }
   
   #paragraph{
+    text-align: justify;
+    text-align-last: left;
     word-break: break-all;
-    text-align: left;
+    line-height: 1.6;
+    margin: 15px 0;
   }
   .section{
     border: 1px solid #ced4da;
@@ -121,4 +113,11 @@ body{
         width: 100%;
         margin-top: 10px;
     }
+  }
+
+  .word-wrapper {
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: 4px;
+    margin-bottom: 4px;
   }

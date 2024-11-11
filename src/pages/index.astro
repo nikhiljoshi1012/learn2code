@@ -2,111 +2,104 @@
 import Layout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
 import { Card as BootstrapCard } from 'react-bootstrap';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <svg
-      class="astro-a"
-      width="495"
-      height="623"
-      viewBox="0 0 495 623"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-        fill="url(#paint0_linear_1805_24383)"></path>
-      <defs>
-        <linearGradient
-          id="paint0_linear_1805_24383"
-          x1="247.358"
-          y1="0"
-          x2="247.358"
-          y2="622.479"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stop-opacity="0.9"></stop>
-          <stop offset="1" stop-opacity="0.2"></stop>
-        </linearGradient>
-      </defs>
-    </svg>
-    <h1>Welcome to <span class="text-gradient">Astro</span> - Your Journey Begins Here!</h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br
-      />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
-    <BootstrapCard style={{ width: '18rem' }}>
-      <BootstrapCard.Body>
-        <BootstrapCard.Title>Card Title</BootstrapCard.Title>
-        <BootstrapCard.Text>
-          This is some text within a card body.
-        </BootstrapCard.Text>
-      </BootstrapCard.Body>
-    </BootstrapCard>
-  </main>
-</Layout>
+<BaseLayout title="Home">
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <main style="">
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
+    <div style="background-image: url('/src/icons/Designer.jpeg'); background-size: cover; background-position: center; padding: 8rem; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; background-color: rgba(0, 0, 0, 0.5); background-blend-mode: darken; margin-bottom: 50px">
+      <h1 class="text-gradient">Welcome to learn2Code</h1>
+      <p style="color: white; font-size: 1rem; font-weight: bold; margin-bottom:50px ">
+      This is a simple website to learn coding. We have a lot of resources to help you learn coding.
+      </p>
+      <button class="btn btn-dark">
+      Let's Learn Coding!
+      </button>
+    </div>
+    <hr>
+    <section>
+      <h2 style="padding: 25px">Why Choose Us?</h2>
+      <div class="features container">
+      <div class="feature">
+        <h3>Comprehensive Courses</h3>
+        <p>From Python to JavaScript, explore a variety of languages and frameworks designed for all skill levels.</p>
+      </div>
+      <div class="feature">
+        <h3>Interactive Learning</h3>
+        <p>Engage with hands-on projects and real-world scenarios to build your confidence and skills.</p>
+      </div>
+      <div class="feature">
+        <h3>Expert Instructors</h3>
+        <p>Learn from industry professionals with years of experience in software development and education.</p>
+      </div>
+      <div class="feature">
+        <h3>Flexible Learning</h3>
+        <p>Study at your own pace with 24/7 access to course materials, allowing you to fit learning into your busy schedule.</p>
+      </div>
+      </div>
+    </section>    
+    
+      <div class="code-editor">
+      <div>
+        <h2>Discover Our New Interactive Code Editor!</h2>
+        <p>We’re excited to introduce our new interactive code editor, designed to provide a seamless and powerful coding experience, just like VS Code.</p>
+        <ul>
+        <li>Customizable Interface</li>
+        <li>Integrated Debugging</li>
+        <li>Rich Language Support</li>
+        <li>Integrated with Lessons and Activities</li>
+        </ul>
+      </div>
+      <img src="src/icons/theme.jpg" alt="Code Editor Preview" style="width: 50%" />
+      </div>
+
+      <footer style="background-color: #333; color: white; padding: 20px; margin-top: 50px;">
+        <div style="display: flex; gap: 40px; margin-left: 20px;">
+          <div class="footer-links">
+        <h3>Explore</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="/db" style="color: white;">Database Tutorials</a></li>
+          <li><a href="/notes" style="color: white;">Coding Notes</a></li>
+          <li><a href="/terminal" style="color: white;">Terminal Commands</a></li>
+          <li><a href="/typespeed" style="color: white;">Typing Speed Test</a></li>
+        </ul>
+          </div>
+          <div class="footer-links">
+        <h3>Blogs</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="/blog/python" style="color: white;">Learn Python</a></li>
+          <li><a href="/blog/javascript" style="color: white;">Learn JavaScript</a></li>
+          <li><a href="/blog/html-css" style="color: white;">Learn HTML & CSS</a></li>
+          <li><a href="/blog/react" style="color: white;">Learn React</a></li>
+        </ul>
+          </div>
+        </div>
+        <p style="margin: 20px 0 0 20px;">&copy; 2023 learn2Code. All rights reserved.</p>
+      </footer>
+    </main>
+
+  <style>
+
+    h1 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
-  }
-  .text-gradient {
+    }
+    .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400%;
     background-position: 0%;
-  }
-  .instructions {
+    }
+    .instructions {
     margin-bottom: 2rem;
     border: 1px solid rgba(var(--accent-light), 25%);
     background: linear-gradient(
@@ -115,22 +108,54 @@ import { Card as BootstrapCard } from 'react-bootstrap';
     );
     padding: 1.5rem;
     border-radius: 8px;
-  }
-  .instructions code {
+    }
+    .instructions code {
     font-size: 0.8em;
     font-weight: bold;
     background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
+    color: lightgray;
     border-radius: 4px;
     padding: 0.3em 0.4em;
-  }
-  .instructions strong {
+    }
+    .instructions strong {
     color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
+    }
+    .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 2rem;
     padding: 0;
-  }
+    }
+
+    .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: gray;
+    margin: 20px auto;
+    }
+
+    .feature {
+    flex: 1 1 calc(50% - 20px);
+    padding: 10px;
+    max-width: 250px
+    }
+
+    .code-editor {
+    display: grid;
+    background: hsl(0, 0%, 12%);
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    grid-template-columns: auto auto;
+    }
+
+    .code-editor img {
+    width: 100%;
+    margin-top: 10px;
+    grid-row: span 2;
+    align-self: center;
+    }
+
+
 </style>

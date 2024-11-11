@@ -1,46 +1,92 @@
 ---
-import Button from "@/components/Button.astro";
-import Input from "@/components/Input.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Container, Form, Button, Card, Alert } from 'react-bootstrap';
 ---
 
 <BaseLayout>
-  <div class="grid gap-8">
-    <h1>Login to Your Account</h1>
-    <form class="grid gap-4" id="login-account">
-      <Input name="email" label="Your Email" type="email" />
-      <Input name="password" label="Your Password" type="password" />
-      <Button intent={"accent"}>Login</Button>
-      <p id="error-message" class="text-red-500"></p>
-    </form>
-  </div>
+  <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "80vh" }}>
+    <Card style={{ width: '400px' }} className="shadow-lg">
+      <Card.Body className="p-5">
+        <h2 class="text-center mb-4">Login</h2>
+        
+        <Form id="login-account">
+          <Form.Group className="mb-3">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
+              type="email" 
+              name="email"
+              placeholder="Enter email"
+              required
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              type="password"
+              name="password" 
+              placeholder="Password"
+              required
+            />
+          </Form.Group>
+
+          <div id="error-message" class="text-danger mb-3"></div>
+
+          <Button variant="primary" type="submit" className="w-100 mb-3">
+            Login
+          </Button>
+
+          <div class="text-center">
+            <small>
+              Don't have an account? <a href="/new">Register here</a>
+            </small>
+          </div>
+        </Form>
+      </Card.Body>
+    </Card>
+  </Container>
 
   <script type="module">
     const loginForm = document.querySelector("#login-account");
     const errorMessage = document.querySelector("#error-message");
+    let isLoading = false;
 
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      if (isLoading) return;
+      
+      const submitButton = loginForm.querySelector('button[type="submit"]');
       errorMessage.textContent = "";
+      isLoading = true;
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Loading...';
 
-      // Extract form data
-      const formData = new FormData(loginForm);
+      try {
+        const formData = new FormData(loginForm);
+        const response = await fetch("/api/login-account", {
+          method: "POST",
+          body: formData,
+        });
 
-      // Send data to the API endpoint
-      const response = await fetch("/api/login-account", {
-        method: "POST",
-        body: formData,
-      });
+        const result = await response.json();
+        
+        if (!result.success) {
+          throw new Error(result.error || 'Login failed');
+        }
 
-      const result = await response.json();
-
-      if (result.success) {
-        console.log("Login successful");
-        window.location.href = "/"; // Redirect to home page or desired route
-      } else {
-        console.error("Login error:", result.error);
-        errorMessage.textContent = result.error;
+        // Redirect on success
+        window.location.href = "/dashboard";
+        
+      } catch (error) {
+        errorMessage.textContent = error.message;
+      } finally {
+        isLoading = false;
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Login';
       }
     });
   </script>
 </BaseLayout>
+
+
+</style>

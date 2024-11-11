@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main-container {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: auto;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .read-button {
+            padding: 8px 16px;
+            background-color: #f4f4f4;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .read-button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+
+    <div class="container main-container">
+        <div class="header">
+            <h1>Learn2Code</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Community</a>
+                <a href="#">Next &rarr;</a>
+            </nav>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=What+is+Programming" alt="What is Programming">
+                <div class="card-content">
+                    <div class="card-title">What is programming?</div>
+                    <div class="card-description">
+                        Programming is giving a set of instructions to a computer to execute. Learn the basics of programming, coding.
+                    </div>
+                    <a href="#" class="read-button">READ</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=Best+Programming+Language" alt="Best Programming Language">
+                <div class="card-content">
+                    <div class="card-title">Which is the best programming language?</div>
+                    <div class="card-description">
+                        Are you wondering which programming languages will dominate the tech world in 2025?
+                    </div>
+                    <a href="#" class="read-button">READ</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=Introduction+to+JAVA" alt="Introduction to JAVA">
+                <div class="card-content">
+                    <div class="card-title">Introduction to JAVA</div>
+                    <div class="card-description">
+                        Learn the basics of Java, a class-based, object-oriented programming language that can run on any platform.
+                    </div>
+                    <a href="#" class="read-button">READ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

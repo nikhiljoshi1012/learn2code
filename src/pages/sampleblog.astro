@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <header>
+            <h1>What is Programming?</h1>
+            <p class="intro">Programming is the process of writing instructions that a computer can execute to perform a task.</p>
+        </header>
+
+        <section>
+            <h2>Understanding the Basics</h2>
+            <p>Programming is like giving directions to a computer, telling it step-by-step what to do. These directions are written in <span class="highlight">programming languages</span> that the computer can understand and process.</p>
+        </section>
+
+        <section>
+            <h2>Why Learn Programming?</h2>
+            <p>Learning programming opens up many opportunities. Here are a few reasons to start programming:</p>
+            <ul>
+                <li>It allows you to create websites, apps, games, and more.</li>
+                <li>You can automate repetitive tasks and save time.</li>
+                <li>Programming skills are in high demand in the job market.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common Programming Languages</h2>
+            <p>There are several popular programming languages, each with its own unique features. Some of the most commonly used languages include:</p>
+            <ol>
+                <li><strong>Python</strong> - Known for its readability and simplicity. Great for beginners.</li>
+                <li><strong>JavaScript</strong> - Primarily used for web development to make websites interactive.</li>
+                <li><strong>Java</strong> - A versatile language used in many applications, including Android development.</li>
+                <li><strong>C++</strong> - Known for its performance and used in game development and system programming.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Example of a Simple Program</h2>
+            <p>Let’s look at an example of a basic <code>Python</code> program that prints "Hello, World!" to the screen:</p>
+            <div class="code-example">
+                <code>
+                    print("Hello, World!")
+                </code>
+            </div>
+            <p>This simple program instructs the computer to display the text "Hello, World!"</p>
+        </section>
+
+        <section>
+            <h2>How Does Programming Work?</h2>
+            <p>Programming involves several steps:</p>
+            <ul>
+                <li><strong>Writing code:</strong> The programmer writes code in a programming language.</li>
+                <li><strong>Compiling:</strong> The code is translated into a format the computer can understand.</li>
+                <li><strong>Executing:</strong> The computer runs the compiled code and performs the tasks instructed by the program.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Key Concepts in Programming</h2>
+            <p>Some important concepts every programmer should understand include:</p>
+            <ul>
+                <li><strong>Variables:</strong> Used to store data that the program can manipulate.</li>
+                <li><strong>Data types:</strong> The kind of data that can be stored, such as numbers, text, etc.</li>
+                <li><strong>Loops:</strong> Repeating a set of instructions multiple times.</li>
+                <li><strong>Functions:</strong> A block of code designed to perform a specific task.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

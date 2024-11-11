@@ -1,4 +1,6 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
 const BUCKET_URL = "https://firebasestorage.googleapis.com/v0/b/onpaper-auth.appspot.com/o/learn2codeNotes";
 
 // Function to decode Firebase Storage file names
@@ -19,83 +21,165 @@ const documents = files.map((file: { name: string }) => ({
 
 console.log(documents);
 
+// Add at the top of the file with other imports
+const sampleCards = [
+  { title: "JavaScript Basics", description: "Fundamentals of JavaScript programming" },
+  { title: "Python Data Structures", description: "Lists, dictionaries, and more" },
+  { title: "React Hooks", description: "Understanding React hooks and state management" },
+  { title: "CSS Grid Layout", description: "Modern CSS grid techniques" },
+  { title: "Node.js Express", description: "Building REST APIs with Express" },
+  { title: "TypeScript Types", description: "Advanced typing in TypeScript" },
+  { title: "Git Workflow", description: "Version control best practices" },
+  { title: "SQL Queries", description: "Database queries and optimization" },
+  { title: "Docker Containers", description: "Containerization basics" },
+  { title: "AWS Services", description: "Cloud computing fundamentals" }
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF Document Library</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-50 min-h-screen">
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">PDF Document Library</h1>
-    
-    <!-- Search Bar -->
-    <div class="mb-8">
-      <input 
-        type="text" 
-        id="search" 
-        placeholder="Search documents..." 
-        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-    </div>
-
-    <!-- Document List -->
-    <div id="document-list" class="grid gap-4">
-      {documents.map((doc: { name: string, url: string }) => (
-        <div 
-          class="document-item p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
-          data-title={doc.name.toLowerCase()}
+<BaseLayout>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Document Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8">PDF Document Library</h1>
+      
+      <!-- Search Bar
+      <div class="mb-8">
+        <input 
+          type="text" 
+          id="search" 
+          placeholder="Search documents..." 
+          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <a 
-            href={doc.url}
-            download={doc.name}
-            class="flex items-center space-x-3 text-gray-800 hover:text-blue-600"
+      </div>
+      -->
+
+      <!-- Document List 
+      <div id="document-list" class="grid gap-4">
+        {documents.map((doc: { name: string, url: string }) => (
+          <div 
+            class="document-item p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
+            data-title={doc.name.toLowerCase()}
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              class="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
+            <a 
+              href={doc.url}
+              download={doc.name}
+              class="flex items-center space-x-3 text-gray-800 hover:text-blue-600"
             >
-              <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
-              />
-            </svg>
-            <span>{doc.name}</span>
-          </a>
-        </div>
-      ))}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-6 w-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                />
+              </svg>
+              <span>{doc.name}</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div> 
+    
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-8">Study Notes</h1>
+    -->
+
+      
+      <div class="mb-6">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search notes..."
+          class="w-full p-2 border rounded-lg"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="documentList">
+        {/* Sample Cards */}
+        {sampleCards.map((card) => (
+          <div 
+            class="document-item p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            data-title={card.title.toLowerCase()}
+          >
+            <div class="flex items-center mb-4">
+              <svg class="w-8 h-8 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 class="text-xl font-semibold">{card.title}</h3>
+            </div>
+            <p class="text-gray-600">{card.description}</p>
+            <div class="mt-4 flex justify-end">
+              <button class="text-blue-500 hover:text-blue-700">
+                Download PDF
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
 
-  <script>
-    // Search functionality
-    const searchInput = document.getElementById('search') as HTMLInputElement;
-    const documentList = document.getElementById('document-list');
+    <script>
+      // Search functionality
+      const searchInput = document.getElementById('search') as HTMLInputElement;
+      const documentList = document.getElementById('document-list');
 
-    searchInput.addEventListener('input', (e) => {
-      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
-      const documents = documentList?.getElementsByClassName('document-item');
+      searchInput.addEventListener('input', (e) => {
+        const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+        const documents = documentList?.getElementsByClassName('document-item');
 
-      if (documents) {
-        Array.from(documents).forEach((doc) => {
-          const title = doc.getAttribute('data-title') || '';
-          if (title.includes(searchTerm)) {
-            doc.classList.remove('hidden');
-          } else {
-            doc.classList.add('hidden');
-          }
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+        if (documents) {
+          Array.from(documents).forEach((doc) => {
+            const title = doc.getAttribute('data-title') || '';
+            if (title.includes(searchTerm)) {
+              doc.classList.remove('hidden');
+            } else {
+              doc.classList.add('hidden');
+            }
+          });
+        }
+      });
+
+      const searchInputNotes = document.getElementById('searchInput');
+      const documentListNotes = document.getElementById('documentList');
+
+      searchInputNotes?.addEventListener('input', (e) => {
+        const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+        const documents = documentListNotes?.getElementsByClassName('document-item');
+
+        if (documents) {
+          Array.from(documents).forEach((doc) => {
+            const title = doc.getAttribute('data-title') || '';
+            if (title.includes(searchTerm)) {
+              doc.classList.remove('hidden');
+            } else {
+              doc.classList.add('hidden');
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+  </html>
+</BaseLayout>
+
+<style>
+  .document-item {
+    transition: all 0.3s ease;
+  }
+  .hidden {
+    display: none;
+  }
+</style>

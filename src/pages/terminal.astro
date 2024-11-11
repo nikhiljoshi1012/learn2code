@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <div id="terminal" class=""></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize terminal
+            const term = new Terminal({
+                cursorBlink: true,
+                fontSize: 24,
+                fontFamily: 'monospace',
+                theme: {
+                    background: '#282c34',
+                    foreground: '#abb2bf'
+                }
+            });
+
+            // Create fit addon
+            const fitAddon = new FitAddon.FitAddon();
+            term.loadAddon(fitAddon);
+
+            // Open terminal
+            term.open(document.getElementById('terminal'));
+            fitAddon.fit();
+
+            // Vim state
+            let vimMode = 'normal';
+            let buffer = '';
+            let cursorPos = 0;
+            let content = '';
+
+            // Handle key input
+            term.onKey(({ key, domEvent }) => {
+                if (vimMode === 'normal') {
+                    switch (key) {
+                        case 'i':
+                            vimMode = 'insert';
+                            term.write('\r\n-- INSERT --');
+                            break;
+                        case ':':
+                            vimMode = 'command';
+                            term.write('\r\n:');
+                            break;
+                        case 'h':
+                            if (cursorPos > 0) {
+                                cursorPos--;
+                                term.write('\b');
+                            }
+                            break;
+                        case 'l':
+                            if (cursorPos < content.length) {
+                                cursorPos++;
+                                term.write('\x1B[C');
+                            }
+                            break;
+                    }
+                } else if (vimMode === 'insert') {
+                    if (domEvent.key === 'Escape') {
+                        vimMode = 'normal';
+                        term.write('\r\n-- NORMAL --');
+                    } else {
+                        content = content.slice(0, cursorPos) + key + content.slice(cursorPos);
+                        cursorPos++;
+                        term.write(key);
+                    }
+                } else if (vimMode === 'command') {
+                    if (domEvent.key === 'Enter') {
+                        if (buffer === 'q') {
+                            term.write('\r\nQuit');
+                        } else if (buffer === 'w') {
+                            term.write('\r\nSave');
+                        }
+                        buffer = '';
+                        vimMode = 'normal';
+                    } else {
+                        buffer += key;
+                        term.write(key);
+                    }
+                }
+            });
+
+            // Initial prompt
+            term.write('Vim Terminal Emulator\r\n');
+            term.write('-- NORMAL --\r\n');
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                fitAddon.fit();
+            });
+        });
+    </script>
+
+    <style>
+
+        #terminal {
+            height: 80vh;
+            border-radius: 6px;
+            padding: 10px;
+            background: #282c34;
+        }
+
+        .xterm {
+            height: 100%;
+        }
+    </style>
+</BaseLayout>

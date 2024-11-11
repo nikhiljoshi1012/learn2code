@@ -4,11 +4,14 @@ import TypingArea from './TypingArea';
 
 const SpeedTypingGame = () => {
     const paragraphs = [
-        "A plant is one of the most important living things that develop on the earth and is made up of stems, leaves, roots, and so on. Parts of Plants: The part of the plant that developed beneath the soil is referred to as root and the part that grows outside of the soil is known as shoot. The shoot consists of stems, branches, leaves, fruits, and flowers. Plants are made up of six main parts: roots, stems, leaves, flowers, fruits, and seeds.",
-        "The root is the part of the plant that grows in the soil. Its primary function is to provide the plant stability in the earth and make other mineral salts from the earth available to the plant for various metabolic processes. There are three types of roots i.e. Tap Root, Adventitious Roots, and Lateral Root. The roots arise from the parts of the plant and not from the rhizomes roots.",
-        "Stem is the posterior part that remains above the ground and grows negatively geotropic. Internodes and nodes are found on the stem. Branch, bud, leaf, petiole, flower, and inflorescence on a node are all parts of the plant that remain above the ground and undergo negative subsoil development. The trees have brown bark, and the young and newly developed stems are green.",
-        "A flower is the part of a plant that produces seeds, which eventually become other flowers. They are the reproductive system of a plant. Most flowers consist of four main parts: sepals, petals, stamens, and carpels. The female portion of the flower is the carpel. The majority of flowers are hermaphrodites, meaning they have both male and female components, while others may consist of one or the other.",
-        "An aunt is a bassoon from the right perspective. Some posit the melic myanmar to be less than kutcha. One cannot separate foods from blowzy bows. The scampish closet reveals itself as a sclerous llama to those who look. A hip is the skirt of a peak. Some hempy laundries are thought of simply as orchids."
+        "int******** func(int (*arr[10])(char**, double***), std::vector<std::unique_ptr<long****>>& ref, void(*callback)(std::map<std::string, std::tuple<int*, long*, char*>>)) { static int******* val = nullptr; for (size_t i = 0; i < sizeof(arr) / sizeof(arr[0]); ++i) { arr[i] = [](char** p1, double*** p2) -> int { return static_cast<int>(**p1[0] + ***p2[0]); }; } ref.push_back(std::make_unique<long****>(new long***{nullptr})); callback({{\"key\", {new int{5}, new long{10}, new char{'x'}}}}); return &val; }",
+        "template<typename T, typename... Args> class MultiLayeredTemplate { using NestedType = typename std::conditional<sizeof...(Args) == 1, std::tuple<T, Args...>, std::map<std::string, std::vector<std::pair<T, std::shared_ptr<Args>>>>>; static_assert(std::is_integral<T>::value, \"T must be integral\"); public: NestedType operator()(Args... args) { return NestedType{{\"Key\", std::make_pair(T{}, std::make_shared<Args>(args))...}}; } };",
+        "#define JOIN(a, b) a##b #define RECURSIVE_MACRO(x, y) JOIN(x, y) #define EXTREME_MACRO(a, b, c, d) RECURSIVE_MACRO(JOIN(a * b, c | d), RECURSIVE_MACRO(a & d, b + c)) #define NESTED_LOGIC(x, y, z) (EXTREME_MACRO(x, y, z, x^z) & ((x << y) | (z >> y))) const int result = NESTED_LOGIC(10, 20, 30);",
+        "std::map<std::string, std::vector<std::array<std::tuple<std::unique_ptr<int>, std::shared_ptr<char>, std::function<void(std::vector<int>&)>>, 5>>> container = { {\"example\", {{{std::make_unique<int>(5), std::make_shared<char>('a'), [](std::vector<int>& vec) { for (auto& v : vec) { v *= 2; } }}}}} };",
+        "template<typename T, typename U> struct ComplexStruct { T operator+(const U& u) { return T(); } auto operator()(std::function<void(std::array<T, 10>)> func) { return [func](std::array<U, 5> arr) { func(std::array<T, 10>{}); }; } }; ComplexStruct<std::vector<int>, std::map<std::string, std::set<double>>> obj; auto lambda = obj + std::map<std::string, std::set<double>>{{\"pi\", {3.14}}}; lambda([](std::array<int, 10> arr) { for (auto x : arr) std::cout << x; });",
+        "auto superComplexLambda = [&, a = 5, b = std::make_unique<int>(10), c = std::shared_ptr<char>(new char('z'))] <typename T>(std::vector<std::pair<T, T>> vec, std::map<std::string, T> map) -> decltype(vec[0].first + map.begin()->second) { auto res = vec[0].first + map.begin()->second; std::for_each(vec.begin(), vec.end(), [&](auto& pair) { res += pair.first; }); return res; };",
+        "namespace Outer { namespace Middle { namespace Inner { class AbstractBase { public: virtual void execute(const std::string&, const std::map<int, std::vector<double>>&) = 0; }; using NestedAlias = std::unique_ptr<std::map<std::string, std::array<int, 5>>>; } using BasePtr = std::shared_ptr<Inner::AbstractBase>; } } Outer::Middle::BasePtr base = std::make_shared<Outer::Middle::Inner::AbstractBase>();",
+
     ];
 
     const [typingText, setTypingText] = useState([]);
@@ -23,10 +26,16 @@ const SpeedTypingGame = () => {
 
     const loadParagraph = () => {
         const ranIndex = Math.floor(Math.random() * paragraphs.length);
-        const content = Array.from(paragraphs[ranIndex]).map((letter, index) => (
-            <span key={index} style={{ color: letter !== ' ' ? 'black' : 'transparent' }}
-                className={`char ${index === 0 ? 'active' : ''}`}>
-                {letter !== ' ' ? letter : '_'}
+        const words = paragraphs[ranIndex].split(' ');
+        const content = words.map((word, wordIndex) => (
+            <span className="word-wrapper" key={wordIndex}>
+                {Array.from(word).map((letter, letterIndex) => (
+                    <span key={letterIndex} style={{ color: letter !== ' ' ? 'black' : 'transparent' }}
+                        className={`char ${wordIndex === 0 && letterIndex === 0 ? 'active' : ''}`}>
+                        {letter !== ' ' ? letter : '_'}
+                    </span>
+                ))}
+                <span className="char" style={{ color: 'transparent' }}>_</span>
             </span>
         ));
         setTypingText(content);

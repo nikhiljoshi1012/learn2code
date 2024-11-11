@@ -1,11 +1,15 @@
 ---
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { logoutAccount } from '../actions/logoutAccount';
+
 type Props = {
   title?: string;
   description?: string;
 };
 
 const {
-  title = "Firebase Auth",
+  title = "Learn2Code",
   description = "Astro tutorial for Firebase Auth",
 } = Astro.props;
 
@@ -13,7 +17,7 @@ const { userEmail } = Astro.locals;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,19 +30,42 @@ const { userEmail } = Astro.locals;
     <meta name="description" content={description} />
   </head>
 
-  <body
-    class="bg-gradient-to-b from-black to-theme-base text-theme-text text-base relative min-h-screen grid-rows-auto-1fr grid place-items-center"
-  >
-    <header>
-      <div
-        class="py-8 text-theme-accent font-bold text-3xl grid place-items-center"
-        aria-label="Firebase and Astro"
-      >
-        <h1>Firebase and Astro</h1>
-      </div>
-      {userEmail && <p>Welcome back, {userEmail}</p>}
-    </header>
-    <main class="container grid place-items-center">
+  <body class="bg-transparent">
+    <!-- Navigation-->
+    <Navbar bg="light" expand="lg" sticky="top" className="shadow-sm" style={{ zIndex: 1000 }}>
+
+      <Navbar.Brand href="/" style={{ fontFamily: "'Courier New', Courier, monospace" }}>learn2Code</Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarResponsive" />
+      <Navbar.Collapse id="navbarResponsive">
+        <Nav className="ms-auto me-4 my-3 my-lg-0">
+        <Nav.Link href="/bloglist" className="me-lg-3">Blogs</Nav.Link>
+        <Nav.Link href="/db" className="me-lg-3">Algo Visualiser</Nav.Link>
+        <Nav.Link href="/notes" className="me-lg-3">Quick Notes</Nav.Link>
+        <Nav.Link href="/terminal" className="me-lg-3">Vim Mode</Nav.Link>
+        <Nav.Link href="/typespeed" className="me-lg-3">Typing Test</Nav.Link>
+        <Nav.Link href="/typespeed" className="me-lg-3">Web Code Editor</Nav.Link>
+        </Nav>
+        {userEmail ? (
+        <>
+          <Navbar.Text className="me-lg-3">Welcome, {userEmail}</Navbar.Text>
+          <Button variant="dark" className="px-3 mb-2 mb-lg-0" onClick={logoutAccount}>
+          <span className="d-flex align-items-center">
+            <i className="bi-box-arrow-right me-2"></i>
+            <span className="small">Logout</span>
+          </span>
+          </Button>
+        </>
+        ) : (
+        <Button variant="dark" className="px-3 mb-2 mb-lg-0" href="/login">
+          <span className="d-flex align-items-center">
+          <i className="bi-chat-text-fill me-2"></i>
+          <span className="small">Login</span>
+          </span>
+        </Button>
+        )}
+      </Navbar.Collapse>
+    </Navbar>
+    <main class="">
       <slot />
     </main>
   </body>
@@ -57,7 +84,8 @@ const { userEmail } = Astro.locals;
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: white;
+
   }
   code {
     font-family:
@@ -69,5 +97,22 @@ const { userEmail } = Astro.locals;
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      background: #13151a;
+      color: white !important;
+    }
+    html {
+      background: #13151a;
+      color: white !important;
+    }
+    h1 {
+      color: white;
+    }
+    h2 {
+      color: white;
+    }
   }
 </style>
