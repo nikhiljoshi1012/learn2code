@@ -1,0 +1,181 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <header>
+            <h1>JavaScript ES6: A Modern Approach</h1>
+            <p class="intro">ES6 introduces powerful new features that enhance JavaScript coding, making it more efficient and readable.</p>
+        </header>
+
+        <section>
+            <h2>What is ES6?</h2>
+            <p>ES6, also known as ECMAScript 2015, brought JavaScript into the modern era. Think of it as JavaScript getting a superhero upgrade! 🦸‍♂️ It introduced many features that make coding not just easier, but more fun and powerful.</p>
+            <p>Released in 2015, ES6 was the biggest update to JavaScript since its creation. It's like JavaScript went to the gym and came back with amazing new powers! 💪</p>
+        </section>
+
+        <section>
+            <h2>Cool ES6 Features You'll Love</h2>
+            
+            <h3>1. Arrow Functions - Your New Best Friend</h3>
+            <p>Remember the old way of writing functions? Well, arrow functions make it way cooler:</p>
+            <div class="code-example">
+                <code><pre>{`// Old way 👴
+function oldWay(x) {
+  return x * 2;
+}
+
+// New way 😎
+const newWay = x => x * 2;`}</pre></code>
+            </div>
+
+            <h3>2. Template Literals - String Interpolation Magic</h3>
+            <p>No more messy string concatenation!</p>
+            <div class="code-example">
+                <code><pre>{`const name = 'Coder';
+const greeting = \`Hello \${name}! 👋\`;
+// Much better than 'Hello ' + name + '!'`}</pre></code>
+            </div>
+
+            <h3>3. Destructuring - Unpack Like a Pro</h3>
+            <div class="code-example">
+                <code><pre>{`const person = { name: 'John', age: 25, hobby: 'coding' };
+const { name, hobby } = person; // Easy peasy! 🎮`}</pre></code>
+            </div>
+
+            <h3>4. Spread/Rest Operator (...) - The Three Dots of Magic</h3>
+            <div class="code-example">
+                <code><pre>{`// Spread in arrays
+const numbers = [1, 2, 3];
+const moreNumbers = [...numbers, 4, 5]; // [1,2,3,4,5]
+
+// Rest parameters
+const sum = (...nums) => nums.reduce((a, b) => a + b);`}</pre></code>
+            </div>
+
+            <h3>5. Classes - OOP Made Simple</h3>
+            <div class="code-example">
+                <code><pre>{`class Superhero {
+  constructor(name, power) {
+    this.name = name;
+    this.power = power;
+  }
+  usePower() {
+    return \`\${this.name} uses \${this.power}!\`;
+  }
+}`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pro Tips 🌟</h2>
+            <ul>
+                <li>Always use const unless you need to reassign (then use let)</li>
+                <li>Arrow functions make great callbacks</li>
+                <li>Template literals are perfect for HTML templates</li>
+                <li>Destructuring can make your code much cleaner</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Practice Time! 💻</h2>
+            <p>Try this fun challenge:</p>
+            <div class="code-example">
+                <code><pre>{`// Challenge: Refactor this code using ES6 features
+function getHighScores(scores) {
+  var filtered = scores.filter(function(s) { return s > 90; });
+  return filtered;
+}
+
+// Your turn to make it modern! ✨`}</pre></code>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

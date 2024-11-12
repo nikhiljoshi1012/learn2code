@@ -8,7 +8,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     rel="stylesheet"
     href="src/components/SpeedTypingGame/SpeedTyping.css"
   />
-
+  <div style="display: flex; justify-content: center; align-items: center; padding-top: 10px; flex-direction: column;">
+    <h1 style="font-weight: bold !important; background: linear-gradient(to right, #ff7e5f, #feb47b) !important; -webkit-background-clip: text !important; color: transparent !important;">
+      Speed Type
+    </h1>
+    <h2>Test how fast you can type programming Syntax and compete against others!</h2>
+  </div>
   <div class="typing-container" style="display: flex; justify-content: center; align-items: center; margin: 50px auto;">
     <App client:load />
   </div>

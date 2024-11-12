@@ -45,6 +45,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         .card-container {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .card {
@@ -52,10 +53,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: 250px;
+            width: 240px;
             display: flex;
             flex-direction: column;
             text-align: left;
+            min-width: 200px;
         }
 
         .card img {
@@ -104,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="header">
             <h1>Learn2Code</h1>
             <nav>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
                 <a href="#">Community</a>
                 <a href="#">Next &rarr;</a>
             </nav>
@@ -118,10 +120,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="card-description">
                         Programming is giving a set of instructions to a computer to execute. Learn the basics of programming, coding.
                     </div>
-                    <a href="#" class="read-button">READ</a>
+                    <a href="/blogs/what_is_programming" class="read-button">READ</a>
+                </div>
+
+            </div>
+                        <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=Web+Development+Roadmap" alt="Web Development Roadmap">
+                <div class="card-content">
+                    <div class="card-title">Complete Web Development Roadmap</div>
+                    <div class="card-description">
+                        A comprehensive guide to becoming a full-stack web developer, from HTML basics to advanced frameworks.
+                    </div>
+                    <a href="/blogs/complete_webdev" class="read-button">READ</a>
                 </div>
             </div>
-
             <div class="card">
                 <img src="https://via.placeholder.com/250x140?text=Best+Programming+Language" alt="Best Programming Language">
                 <div class="card-content">
@@ -129,7 +141,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="card-description">
                         Are you wondering which programming languages will dominate the tech world in 2025?
                     </div>
-                    <a href="#" class="read-button">READ</a>
+                    <a href="/blogs/best_prog_lang" class="read-button">READ</a>
                 </div>
             </div>
 
@@ -140,7 +152,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="card-description">
                         Learn the basics of Java, a class-based, object-oriented programming language that can run on any platform.
                     </div>
-                    <a href="#" class="read-button">READ</a>
+                    <a href="/blogs/java_basics" class="read-button">READ</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=Python+Fundamentals" alt="Python Fundamentals">
+                <div class="card-content">
+                    <div class="card-title">Python Fundamentals</div>
+                    <div class="card-description">
+                        Master Python basics, from data types to functions, perfect for beginners starting their coding journey.
+                    </div>
+                    <a href="/blogs/python_fundamentals" class="read-button">READ</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=JavaScript+ES6" alt="JavaScript ES6">
+                <div class="card-content">
+                    <div class="card-title">JavaScript ES6</div>
+                    <div class="card-description">
+                        Explore modern JavaScript features including arrow functions, destructuring, and promises.
+                    </div>
+                    <a href="/blogs/js_es6" class="read-button">READ</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=React+Hooks" alt="React Hooks">
+                <div class="card-content">
+                    <div class="card-title">React Hooks</div>
+                    <div class="card-description">
+                        Understanding React hooks for state management and side effects in functional components.
+                    </div>
+                    <a href="/blogs/react_hooks" class="read-button">READ</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=Git+Version+Control" alt="Git Version Control">
+                <div class="card-content">
+                    <div class="card-title">Git Version Control</div>
+                    <div class="card-description">
+                        Learn Git basics, branching strategies, and collaboration workflows for better code management.
+                    </div>
+                    <a href="/blogs/git_vcs" class="read-button">READ</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=SQL+Database" alt="SQL Database">
+                <div class="card-content">
+                    <div class="card-title">SQL Database</div>
+                    <div class="card-description">
+                        Master SQL queries, database design, and optimization techniques for efficient data management.
+                    </div>
+                    <a href="/blogs/sql_db" class="read-button">READ</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x140?text=TypeScript+Guide" alt="TypeScript Guide">
+                <div class="card-content">
+                    <div class="card-title">TypeScript Guide</div>
+                    <div class="card-description">
+                        Discover TypeScript's type system, interfaces, and advanced features for robust applications.
+                    </div>
+                    <a href="/blogs/ts_guide" class="read-button">READ</a>
                 </div>
             </div>
         </div>

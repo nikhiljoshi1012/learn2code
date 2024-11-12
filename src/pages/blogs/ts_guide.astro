@@ -1,0 +1,184 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <header>
+            <h1>Getting Started with TypeScript</h1>
+            <p class="intro">TypeScript adds a powerful type system to JavaScript, enabling robust and scalable applications.</p>
+        </header>
+
+        <section>
+            <h2>Why TypeScript?</h2>
+            <p>Imagine TypeScript as your friendly coding assistant that helps catch mistakes before they happen! It's like having spell-check for your JavaScript code. Here's why developers love it:</p>
+            <ul>
+                <li>✨ <strong>Catches Bugs Early:</strong> Spots mistakes while you type, saving hours of debugging</li>
+                <li>🚀 <strong>Better Code Completion:</strong> Your editor becomes smarter, suggesting exactly what you need</li>
+                <li>🛡️ <strong>Safer Refactoring:</strong> Change your code with confidence</li>
+                <li>📚 <strong>Self-Documenting Code:</strong> Your code becomes easier to understand</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Core Features</h2>
+            <p>Some essential TypeScript features include:</p>
+            <ul>
+                <li><strong>Interfaces:</strong> Define custom data types.</li>
+                <li><strong>Type Annotations:</strong> Add types to variables and functions.</li>
+                <li><strong>Generics:</strong> Create reusable components.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Getting Started</h2>
+            <p>Let's write your first TypeScript code! Start by installing TypeScript:</p>
+            <div class="code-example">
+                <code><pre>{`npm install -g typescript`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Basic Types</h2>
+            <p>TypeScript makes JavaScript more predictable with types. Here are some examples:</p>
+            <div class="code-example">
+                <code><pre>{`// Basic types
+let name: string = "John";
+let age: number = 25;
+let isStudent: boolean = true;
+
+// Arrays
+let hobbies: string[] = ["coding", "reading", "gaming"];
+
+// Objects
+interface Person {
+  name: string;
+  age: number;
+}
+
+let student: Person = {
+  name: "Jane",
+  age: 20
+};`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fun with Functions</h2>
+            <p>Functions become more reliable with TypeScript:</p>
+            <div class="code-example">
+                <code><pre>{`function greet(name: string, age?: number): string {
+  if (age) {
+    return \`Hello \${name}, you are \${age} years old!\`;
+  }
+  return \`Hello \${name}!\`;
+}`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pro Tips 🎯</h2>
+            <ul>
+                <li>Start with <code>strict: true</code> in your tsconfig.json</li>
+                <li>Use interfaces for object shapes</li>
+                <li>Try union types for flexibility</li>
+                <li>Leverage type inference when possible</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common Pitfalls to Avoid</h2>
+            <ul>
+                <li>Don't overuse <code>any</code> type</li>
+                <li>Remember that TypeScript is removed at runtime</li>
+                <li>Don't forget to compile your TypeScript code</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

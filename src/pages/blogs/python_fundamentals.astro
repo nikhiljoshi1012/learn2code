@@ -1,0 +1,168 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <header>
+            <h1>Python Fundamentals</h1>
+            <p class="intro">Learn the basics of Python, the perfect language for beginners!</p>
+        </header>
+
+        <section>
+            <h2>Getting Started with Python</h2>
+            <p>Python is like the Swiss Army knife of programming languages! 🔧 It's simple to learn but powerful enough to build Instagram, YouTube, and even AI models!</p>
+            <div class="code-example">
+                <code><pre>
+{`# Your first Python program
+print("Hello, Future Developer! 👋")
+
+# Variables are like boxes for your data
+name = "Captain Code"
+age = 25
+print(f"I'm {name} and I'm {age} years old!")`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fun with Data Types</h2>
+            <p>Let's explore Python's data types with some cool examples:</p>
+            <div class="code-example">
+                <code><pre>{`# Lists - like a magical bag that holds anything!
+my_pets = ["🐱 Cat", "🐕 Dog", "🐠 Fish"]
+
+# Dictionaries - like a word dictionary, but cooler
+game_inventory = {
+  "weapon": "⚔️ Sword",
+  "armor": "🛡️ Shield",
+  "potion": 3
+}`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Control Flow: Making Decisions</h2>
+            <p>Learn how to make your program think and decide:</p>
+            <div class="code-example">
+                <code><pre>{`# A simple game decision
+player_health = 50
+if player_health > 80:
+  print("You're doing great! 💪")
+elif player_health > 30:
+  print("Better find some health potions! 🧪")
+else:
+  print("Warning: Low health! ❤️")`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Functions: Your Own Commands</h2>
+            <p>Create reusable blocks of code:</p>
+            <div class="code-example">
+                <code><pre>{`def calculate_high_score(scores):
+  return max(scores)
+
+# Let's use it!
+game_scores = [120, 350, 185, 410]
+high_score = calculate_high_score(game_scores)
+print(f"🏆 High Score: {high_score}")`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Cool Projects to Try</h2>
+            <ul>
+                <li>🎮 Create a number guessing game</li>
+                <li>🤖 Build a simple chatbot</li>
+                <li>📝 Make a to-do list application</li>
+                <li>🌤️ Create a weather information script</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

@@ -1,0 +1,171 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <header>
+            <h1>Understanding React Hooks</h1>
+            <p class="intro">React hooks provide a way to manage state and side effects in functional components.</p>
+        </header>
+
+        <section>
+            <h2>What Are Hooks?</h2>
+            <p>Hooks are like magic spells that give your React components superpowers! 🪄 They were introduced in React 16.8 to solve common problems developers faced with class components. Think of hooks as special functions that let you tap into React's features without writing complex class components.</p>
+        </section>
+
+        <section>
+            <h2>useState: Your First Hook</h2>
+            <p>Let's start with the most commonly used hook - useState. Imagine it as a magical box that can hold and update any piece of information in your component.</p>
+            <div class="code-example">
+                <code><pre>{`const [count, setCount] = useState(0);
+const [username, setUsername] = useState('');
+
+// Using state
+<button onClick={() => setCount(count + 1)}>
+  Clicks: {count}
+</button>`}</pre></code>
+            </div>
+            <p>Fun fact: You can think of useState as your component's memory! 🧠</p>
+        </section>
+
+        <section>
+            <h2>useEffect: The Side Effect Master</h2>
+            <p>useEffect is like setting up automatic reactions to changes in your component. It's perfect for:</p>
+            <ul>
+                <li>Fetching data from an API 🌐</li>
+                <li>Setting up subscriptions 📫</li>
+                <li>Manually changing the DOM 🎨</li>
+            </ul>
+            <div class="code-example">
+                <code><pre>{`useEffect(() => {
+  console.log('Component mounted!');
+  return () => console.log('Cleanup time!');
+}, []);`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Custom Hooks: Create Your Own Magic</h2>
+            <p>The real power of hooks comes when you create your own! Here's a simple example:</p>
+            <div class="code-example">
+                <code><pre>{`function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return width;
+}`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Hook Rules: The Do's and Don'ts</h2>
+            <ul>
+                <li>✅ Always use hooks at the top level</li>
+                <li>✅ Only use hooks in React functions</li>
+                <li>❌ Don't use hooks in loops or conditions</li>
+                <li>❌ Don't call hooks from regular JavaScript functions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Commonly Used Hooks</h2>
+            <p>Here are some key hooks you’ll often use:</p>
+            <ul>
+                <li><strong>useState:</strong> For managing state in a component.</li>
+                <li><strong>useEffect:</strong> For handling side effects like fetching data.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

@@ -1,0 +1,128 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+
+        code {
+            background: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+    </style>
+
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <h1>Java Basics</h1>
+        
+        <h2>Introduction to Java</h2>
+        <p>Java is a class-based, object-oriented programming language designed to be platform-independent.</p>
+
+        <h2>Basic Syntax</h2>
+        <div class="code-block">
+            <code> <pre>
+
+                {`public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        }
+        }`}
+        </pre>
+            </code>
+        </div>
+
+        <h2>Variables and Data Types</h2>
+        <p>Java has several basic data types:</p>
+        <ul>
+            <li><code>int</code> - Integer values</li>
+            <li><code>double</code> - Decimal numbers</li>
+            <li><code>boolean</code> - True/false values</li>
+            <li><code>String</code> - Text values</li>
+        </ul>
+
+        <h2>Control Structures</h2>
+        <p>Java supports standard control structures:</p>
+        <div class="code-block">
+            <code><pre>
+
+                {`// If statement
+if (condition) {
+    
+} else {
+    
+}
+
+// For loop
+for (int i = 0; i < 5; i++) {
+    
+}
+
+// While loop
+while (condition) {
+    
+}`}
+        </pre>
+            </code>
+        </div>
+
+        <h2>Object-Oriented Programming</h2>
+        <p>Java is built around classes and objects. Here's a simple class example:</p>
+        <div class="code-block">
+            <code>
+                <pre>
+{`class Car {
+    String model;
+    int year;
+    
+    public Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+    }
+}`}
+            </pre></code>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

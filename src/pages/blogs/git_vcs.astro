@@ -1,0 +1,190 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <header>
+            <h1>Git Version Control Basics</h1>
+            <p class="intro">Learn the fundamentals of Git for efficient code management and collaboration.</p>
+        </header>
+
+        <section>
+            <h2>What is Git? 🤔</h2>
+            <p>Imagine you're writing a story, and you want to keep all different versions of it. That's exactly what Git does for your code! It's like a time machine for your project that lets you:</p>
+            <ul>
+                <li>Track every change you make 📝</li>
+                <li>Work with others without stepping on each other's toes 👥</li>
+                <li>Experiment with new ideas safely 🔬</li>
+                <li>Travel back in time to working versions ⏰</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Getting Started with Git 🚀</h2>
+            <h3>Essential Commands</h3>
+            <div class="code-example">
+                <code><pre>{`# Initialize a new Git repository
+git init
+
+# Check status of your changes
+git status
+
+# Add files to staging area
+git add .
+
+# Commit your changes
+git commit -m "Made something awesome! 🎉"`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Branching - Your New Superpower 💪</h2>
+            <p>Branches let you work on different versions of your project simultaneously. Think of them as parallel universes!</p>
+            <div class="code-example">
+                <code><pre>{`# Create a new branch
+git branch feature-awesome
+
+# Switch to the branch
+git checkout feature-awesome
+
+# Or do both at once
+git checkout -b new-feature`}</pre></code>
+            </div>
+            
+            <h3>Branch Workflow Visualization</h3>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px;">
+main      : o---o---o---o
+            \
+feature   :  o---o---o
+                  \
+bugfix    :        o---o
+            </pre>
+        </section>
+
+        <section>
+            <h2>Collaboration Made Easy 🤝</h2>
+            <h3>Working with Remotes</h3>
+            <div class="code-example">
+                <code><pre>{`# Clone a repository
+git clone https://github.com/awesome/project.git
+
+# Push your changes
+git push origin main
+
+# Get latest changes
+git pull origin main`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pro Tips for Git Masters 🎯</h2>
+            <ul>
+                <li>Commit early, commit often!</li>
+                <li>Write clear commit messages</li>
+                <li>Create a .gitignore file for files you don't want to track</li>
+                <li>Always pull before you push</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common Scenarios and Solutions 🆘</h2>
+            <div class="code-example">
+                <code><pre>{`# Oops! Wrong commit message
+git commit --amend -m "Better message"
+
+# Undo last commit but keep changes
+git reset HEAD~1 --soft
+
+# Discard all local changes
+git reset --hard HEAD`}</pre></code>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>

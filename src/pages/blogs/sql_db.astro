@@ -1,0 +1,182 @@
+---
+import BaseLayout from 'src/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #555;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            color: #c0392b;
+        }
+
+        .code-example {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+    <div class="container">
+        <a href="/bloglist" style="display: inline-block; margin-bottom: 20px; text-decoration: none; color: #3498db;">&larr; Back</a>
+        <header>
+            <h1>Mastering SQL Databases</h1>
+            <p class="intro">Understand SQL queries, database design, and optimization techniques for managing data efficiently.</p>
+        </header>
+
+        <section>
+            <h2>What is SQL?</h2>
+            <p>Think of SQL as a universal language for talking to databases - it's like being able to ask your digital filing cabinet exactly what you want! Whether you're building an app, a website, or analyzing data, SQL is your trusty sidekick.</p>
+        </section>
+
+        <section>
+            <h2>Your First SQL Query</h2>
+            <div class="code-example">
+                <code><pre>{`-- This is how you get all users from a table
+SELECT * FROM users;
+
+-- Get specific columns
+SELECT first_name, last_name, email FROM users;`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Creating Your Database</h2>
+            <p>Let's build a simple database for a bookstore:</p>
+            <div class="code-example">
+                <code><pre>{`CREATE TABLE books (
+    id INT PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(50),
+    price DECIMAL(10,2),
+    published_date DATE
+);`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fun with Data!</h2>
+            <p>Here's how to add some books to your database:</p>
+            <div class="code-example">
+                <code><pre>{`INSERT INTO books (id, title, author, price)
+VALUES (1, 'The SQL Adventure', 'Jane Doe', 29.99);
+
+-- Get all expensive books
+SELECT title, author 
+FROM books 
+WHERE price > 20.00;`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Joining Tables - Like Puzzle Pieces</h2>
+            <p>Connecting different tables is where SQL really shines:</p>
+            <div class="code-example">
+                <code><pre>{`SELECT books.title, authors.name
+FROM books
+JOIN authors ON books.author_id = authors.id;`}</pre></code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Cool SQL Tricks</h2>
+            <ul>
+                <li>🔍 <strong>Finding Patterns:</strong> Use LIKE with % wildcards</li>
+                <li>📊 <strong>Grouping Data:</strong> GROUP BY with aggregate functions</li>
+                <li>🔄 <strong>Sorting Results:</strong> ORDER BY for organization</li>
+                <li>🎯 <strong>Filtering Groups:</strong> HAVING for group conditions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Always backup your database</li>
+                <li>Use meaningful table and column names</li>
+                <li>Index frequently searched columns</li>
+                <li>Write clean, formatted queries</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Practice Projects</h2>
+            <p>Try building these simple projects to practice:</p>
+            <ul>
+                <li>📝 Todo List Database</li>
+                <li>📚 Personal Library Manager</li>
+                <li>👥 Contact Management System</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Learn2Code | Empowering beginners to dive into programming</p>
+        </footer>
+    </div>
+</BaseLayout>
